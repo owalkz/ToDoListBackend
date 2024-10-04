@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 15000;
 const cors = require("cors");
 const connect = require("./config/db");
 const errorHandler = require("./middleware/errorMiddleware");
@@ -9,7 +9,7 @@ connect();
 
 // CORS configuration
 const corsOptions = {
-  origin: "http://127.0.0.1:8080",
+  origin: process.env.FRONTEND_URL,
   methods: "GET, PUT, POST, DELETE",
 };
 app.listen(port, () => {
